@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4e48265-f0c4-4da3-85ab-2b230b6f0771" name="Changes" comment="git commit">
-      <change beforePath="$PROJECT_DIR$/Scores.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +111,19 @@
       <option name="presentableId" value="LOCAL‎00003" />
       <updated>1650127090876</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎00004" summary="git commit">
+      <created>1650127269657</created>
+      <option name="number" value="LOCAL‎00004" />
+      <option name="presentableId" value="LOCAL‎00004" />
+      <updated>1650127269657</updated>
+    </task>
+    <task id="LOCAL‎00005" summary="git commit">
+      <created>1650127351182</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1650127351182</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
