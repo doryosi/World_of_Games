@@ -4,3 +4,5 @@ services:
     build: .
     ports:
       - "8777:5003"
+    stdin_open: true
+    tty: true
