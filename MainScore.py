@@ -1,5 +1,7 @@
-from flask import Flask
-from Utils import scores_file_name
+from flask import Flask, render_template
+from Utils import scores_file_name, bad_return_code
+import webbrowser
+
 
 app = Flask("something")
 
@@ -9,9 +11,14 @@ def score_server():
     try:
         with open(scores_file_name) as f:
             score = f.read()
-            return f'<h1>The score is <div id="score">{score}</div></h1>'
+            return render_template('score.html', score=score)
     except BaseException as e:
-        return f'<h1><div id="score" style="color:red">{e.args}</div></h1>'
+        return render_template('score_error.html', bad_return_code=bad_return_code, error=e.args)
 
 
-app.run(host="0.0.0.0", port=5003, debug=True)
+def start_server():
+    # webbrowser.open("http://127.0.0.1:5003")
+    app.run(host="0.0.0.0", port=5003, debug=True)
+
+# app.run(host="0.0.0.0", port=5003, debug=True)
+
