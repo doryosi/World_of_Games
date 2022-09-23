@@ -2,7 +2,7 @@ FROM python:latest
 
 WORKDIR /app
 
-COPY /* .
+COPY World_of_Games/* .
 
 RUN pip3 install -r requirements.txt
 
