@@ -2,8 +2,8 @@ version: "3"
 services:
   WOG_App:
     build: .
-  ports:
-    - targets: 5003
-      host_ip: 127.0.0.1
-      published: 8777
-      mode: host
+    ports:
+      - targets: 5003
+        host_ip: 127.0.0.1
+        published: 8777
+        mode: host
