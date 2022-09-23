@@ -2,7 +2,7 @@ FROM python:latest
 
 WORKDIR /app
 
-COPY / .
+ADD https://github.com/doryosi/World_of_Games/blob/master/ .
 
 RUN pip3 install -r requirements.txt
 
