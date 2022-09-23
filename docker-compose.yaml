@@ -1,6 +1,6 @@
 version: "3"
 services:
-  WOG_App:
+  world_of_games:
     build: .
     ports:
       - "8777:5003"
