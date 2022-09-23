@@ -12,7 +12,7 @@ def get_guess_from_user(user_difficulty):
     while True:
         try:
             user_num = int(input(f"Enter a number between 1 to {user_difficulty}: "))
-            if 1 < user_num <= user_difficulty:
+            if 1 <= user_num <= user_difficulty:
                 return user_num
         except ValueError as e:
             print(f"{e.args} Please try again")
