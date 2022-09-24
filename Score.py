@@ -27,6 +27,4 @@ def add_score(difficulty):
         print(bad_return_code + e.args)
 
 
-add_score(4)
-
 
