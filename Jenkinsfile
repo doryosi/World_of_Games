@@ -25,6 +25,7 @@ pipeline {
             }
         stage('Test'){
             steps{
+                sh "docker exec test_wog_world_of_games_1 pip3 install selenium"
                 sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
                 }
             }
