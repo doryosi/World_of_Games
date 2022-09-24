@@ -14,7 +14,7 @@ def safe_cast(val, to_type, default=int):
 
 
 def test_scores_service():
-    if os.name == 'posix':
+    if os.name == 'Debian GNU/Linux':
         my_driver = webdriver.Chrome(executable_path="/bin/chromedriver")
         my_driver.get("http://127.0.0.1:8777/")
     else:
