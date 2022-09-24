@@ -15,7 +15,8 @@ pipeline {
         }
         stage('Build'){
             steps{
-                sh "docker build -t doryosisinay/world_of_games:WOG ."
+                sh "docker-compose build"
+//                 sh "docker build -t doryosisinay/world_of_games:WOG ."
                 }
             }
         stage('Run'){
