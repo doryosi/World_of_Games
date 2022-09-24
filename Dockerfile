@@ -6,4 +6,4 @@ COPY . .
 
 RUN pip3 install -r Requirements.txt
 
-CMD [ "python3", "MainGame.py", "sleep 999"]
+CMD [ "python3", "MainGame.py"]
