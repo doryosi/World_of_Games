@@ -32,4 +32,4 @@ def main_functions():
         exit(0)
 
 
-print(main_functions())
+main_functions()
