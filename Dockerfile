@@ -22,4 +22,4 @@ RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-ke
     apt-get -yqq install google-chrome-stable && \
     rm -rf /var/lib/apt/lists/*
 
-CMD [ "python3", "MainGame.py"]
+CMD [ "python3", "MainScore.py"]
