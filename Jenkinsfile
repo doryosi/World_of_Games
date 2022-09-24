@@ -43,8 +43,8 @@ pipeline {
         success{
             sh "docker logout"
         }
-        always{
-            sh "docker container rm -f test_wog_world_of_games_1"
-        }
+//         always{
+//             sh "docker container rm -f test_wog_world_of_games_1"
+//         }
     }
 }
