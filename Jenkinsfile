@@ -23,6 +23,12 @@ pipeline {
                 sh "docker-compose up -d"
                 }
             }
+        stage('Test'){
+            steps{
+                sh "python3 MainScore.py"
+                sh "python3 tests/e2e.py"
+                }
+            }
         stage('Login'){
             steps{
                 sh "echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin"
