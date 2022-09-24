@@ -15,3 +15,4 @@ setuptools==56.0.0
 urllib3==1.26.9
 Werkzeug==2.1.1
 zipp==3.8.0
+webdrivermanager~=0.10.0
