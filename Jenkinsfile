@@ -20,7 +20,7 @@ pipeline {
             }
         stage('Run'){
             steps{
-                sh "docker-compose up -d"
+                sh "docker-compose up"
                 }
             }
         stage('Login'){
