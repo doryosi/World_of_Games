@@ -15,7 +15,7 @@ def safe_cast(val, to_type, default=int):
 
 
 def test_scores_service():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().download_and_install()))
     # driver = webdriver.Chrome(executable_path="C:/chromedriver")
     driver.get("http://127.0.0.1:5003")
     wait = WebDriverWait(driver, 20)
