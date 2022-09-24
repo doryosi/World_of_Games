@@ -14,7 +14,7 @@ def safe_cast(val, to_type, default=int):
 
 
 def test_scores_service():
-    my_driver = webdriver.Chrome(executable_path="/bin/chromedriver")
+    my_driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver")
     my_driver.get("http://127.0.0.1:5003/")
     wait = WebDriverWait(my_driver, 20)
     score = int(wait.until(EC.visibility_of_element_located((By.ID, "score"))).text)
