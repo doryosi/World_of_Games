@@ -25,8 +25,7 @@ pipeline {
             }
         stage('Test'){
             steps{
-                sh "python3 MainScore.py"
-                sh "python3 tests/e2e.py"
+                sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
                 }
             }
         stage('Login'){
@@ -43,6 +42,9 @@ pipeline {
     post{
         success{
             sh "docker logout"
+        }
+        always{
+            sh "docker container rm -f test_wog_world_of_games_1"
         }
     }
 }
