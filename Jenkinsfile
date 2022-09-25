@@ -16,7 +16,6 @@ pipeline {
         stage('Build'){
             steps{
                 sh "docker-compose build"
-//                 sh "docker build -t doryosisinay/world_of_games:WOG ."
                 }
             }
         stage('Run'){
@@ -26,8 +25,7 @@ pipeline {
             }
         stage('Test'){
             steps{
-//                 sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
-                sh "python3 tests/e2e.py"
+                sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
                 }
             }
         stage('Login'){
@@ -45,8 +43,9 @@ pipeline {
         success{
             sh "docker logout"
         }
-//         always{
-//             sh "docker container rm -f test_wog_world_of_games_1"
-//         }
+        always{
+            sh "docker container rm -f test_wog_world_of_games_1"
+            sh "docker image rm test_wog_world_of_games"
+        }
     }
 }
