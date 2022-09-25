@@ -26,7 +26,8 @@ pipeline {
             }
         stage('Test'){
             steps{
-                sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
+//                 sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
+                sh "python3 tests/e2e.py"
                 }
             }
         stage('Login'){

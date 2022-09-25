@@ -3,6 +3,6 @@ services:
   world_of_games:
     build: .
     ports:
-      - "8777:5003"
+      - "5003:5003"
     stdin_open: true
     tty: true
