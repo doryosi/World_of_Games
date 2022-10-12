@@ -20,4 +20,4 @@ COPY *.py /$PROJ_NAME/
 COPY Requirements.txt /$PROJ_NAME/Requirements.txt
 RUN pip3 install -r /$PROJ_NAME/Requirements.txt
 EXPOSE $PORT
-CMD [ "python3", "MainScores.py"]
+CMD [ "python3", "MainScore.py"]
