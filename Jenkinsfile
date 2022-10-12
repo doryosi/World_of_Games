@@ -1,15 +1,16 @@
 pipeline {
-
     agent any
     environment{
     DOCKERHUB_CREDENTIALS = credentials('doryosisinay-dockerhub')
+    USER = "doryosi"
+    PROJ_NAME = "World_of_Games"
     }
     stages {
         stage('Checkout') {
             steps {
               checkout([$class: 'GitSCM',
                 branches: [[name: '*/master']],
-                userRemoteConfigs: [[url: 'https://github.com/doryosi/World_of_Games']]])
+                userRemoteConfigs: [[url: "https://github.com/${USER}/${PROJ_NAME}"]]])
               git "https://github.com/doryosi/World_of_Games"
           }
         }

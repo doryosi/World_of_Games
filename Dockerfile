@@ -2,8 +2,10 @@ FROM python:latest
 
 WORKDIR /app
 
-COPY . .
+COPY Scores.txt .
+COPY *.py .
+COPY Requirements.txt .
 
 RUN pip3 install -r Requirements.txt
 
-CMD [ "python3", "MainGame.py"]
+CMD [ "python3", "MainScores.py"]
