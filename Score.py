@@ -2,29 +2,23 @@ from Utils import scores_file_name, bad_return_code
 
 
 def add_score(difficulty):
-    added_score = difficulty * 3 + 5
+    new_points = int(difficulty) * 3 + 5
     try:
-        with open(scores_file_name, "r+") as f:
-            file_content = f.read(1)
-            if not file_content:  # if the file is empty
-                f.write(str(added_score))
-                return added_score
-            else:  # if the file is not empty
-                f.seek(0)  # go to the beginning of the file
-                old_score = f.read()  # read all of its content
-                new_score = added_score + int(old_score)  # add the old score to the new score
-                f.seek(0)  # go to the beginning of the file again
-                f.truncate()  # remove the content within the file
-                f.write(str(new_score))  # add the new score
-                return new_score
+        with open(scores_file_name, "r") as score_file:
+            old_score = score_file.read()
+            new_points += int(old_score)
     except FileNotFoundError:  # if the file doesn't exist
-        with open(scores_file_name, "w") as f:  # create it
-            f.write(str(added_score))  # add the score
-            return added_score
+        print(f"{scores_file_name} is missing. File will be created with a new game scores: {new_points}")
     except PermissionError:
-        print(f"{bad_return_code}please change the file permission")
+        print(f"{bad_return_code} please change the {scores_file_name} permissions")
+        exit()
+    except ValueError:  # if the file is empty
+        print(f"{scores_file_name} is empty, {new_points} will be written")
     except BaseException as e:
-        print(bad_return_code + e.args)
+        print(f"{bad_return_code}. the following exception occurred {e.args}")
+    finally:
+        with open(scores_file_name, "w") as score_file:  # Open the file for writing
+            score_file.write(str(new_points))  # add the score
 
 
 

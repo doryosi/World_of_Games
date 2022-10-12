@@ -4,17 +4,18 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('doryosisinay-dockerhub')
     USER = "doryosi"
     PROJ_NAME = "World_of_Games"
+    PORT = "5001"
     }
     stages {
         stage('Checkout') {
             steps {
               checkout([$class: 'GitSCM',
                 branches: [[name: '*/master']],
-                userRemoteConfigs: [[url: "https://github.com/${USER}/${PROJ_NAME}"]]])
-              git "https://github.com/doryosi/World_of_Games"
+                userRemoteConfigs: [[url: "https://github.com/$USER/$PROJ_NAME"]]])
+              git "https://github.com/$USER/$PROJ_NAME"
           }
         }
-        stage('Build'){
+        stage('Build docker image'){
             steps{
                 sh "docker-compose build"
                 }
@@ -26,7 +27,7 @@ pipeline {
             }
         stage('Test'){
             steps{
-                sh "docker exec test_wog_world_of_games_1 python3 tests/e2e.py"
+                sh "docker compose exec web python3 e2e.py"
                 }
             }
         stage('Login'){
@@ -36,17 +37,15 @@ pipeline {
             }
         stage('Push'){
             steps{
-                sh "docker push doryosisinay/world_of_games:WOG"
+                sh "docker compose push"
                 }
             }
         }
     post{
-        success{
-            sh "docker logout"
-        }
         always{
-            sh "docker container rm -f test_wog_world_of_games_1"
+            sh "docker compose down -v"
             sh "docker image rm test_wog_world_of_games"
+            sh "docker logout"
         }
     }
 }
