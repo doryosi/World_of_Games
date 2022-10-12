@@ -6,7 +6,7 @@ services:
       args:
         PROJ_NAME: "World_of_Games"
         PORT: ${PORT}
-    image: "${IMAGE_NAME}:dev"
+    image: WOG_Web_App:dev
     privileged: true
     user: root
     ports:
