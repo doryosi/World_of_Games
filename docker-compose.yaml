@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 services:
   web:
     build:
@@ -6,6 +6,7 @@ services:
       args:
         PROJ_NAME: "World_of_Games"
         PORT: ${PORT}
+    image: wog_web:test
     privileged: true
     user: root
     ports:
