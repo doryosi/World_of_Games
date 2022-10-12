@@ -1,10 +1,16 @@
 version: "3"
 services:
-  world_of_games:
-    build: .
+  web:
+    build:
+      context: .
+      args:
+        PROJ_NAME: "World_of_Games"
+        PORT: 5001
+    privileged: true
+    user: root
     ports:
-      - "8777:5003"
+      - "${PORT}:${PORT}"
     volumes:
-      - ./:/app
+      - .:/app
     stdin_open: true
     tty: true

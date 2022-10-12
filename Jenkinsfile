@@ -4,13 +4,16 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('doryosisinay-dockerhub')
     USER = "doryosi"
     PROJ_NAME = "World_of_Games"
+    PROJ_BRANCH = "master"
+    IMAGE = "$USER/$PROJ_NAME"
     PORT = "5001"
+    FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
     }
     stages {
         stage('Checkout') {
             steps {
               checkout([$class: 'GitSCM',
-                branches: [[name: '*/master']],
+                branches: [[name: "*/$PROJ_BRANCH"]],
                 userRemoteConfigs: [[url: "https://github.com/$USER/$PROJ_NAME"]]])
               git "https://github.com/$USER/$PROJ_NAME"
           }
