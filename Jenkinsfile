@@ -6,7 +6,7 @@ pipeline {
     PROJ_NAME = "World_of_Games"
     PROJ_BRANCH = "master"
     IMAGE_NAME = "$USER/wog_web_app"
-    NODE_NAME = "WOG_Node"
+    CONTAINER_NAME = "WOG_Node"
     PORT = "5001"
     FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
     }
@@ -48,6 +48,7 @@ pipeline {
     post{
         always{
             sh "docker compose down -v"
+            sh "docker rm $CONTAINER_NAME"
             sh "docker image rm $IMAGE_NAME:dev"
             sh "docker logout"
         }
