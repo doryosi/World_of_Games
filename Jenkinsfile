@@ -48,7 +48,7 @@ pipeline {
     post{
         always{
             sh "docker compose down -v"
-            sh "docker image rm test_wog_world_of_games"
+            sh "docker image rm $USER/$PROJ_NAME"
             sh "docker logout"
         }
     }
