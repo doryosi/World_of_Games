@@ -5,7 +5,7 @@ pipeline {
     USER = "doryosi"
     PROJ_NAME = "World_of_Games"
     PROJ_BRANCH = "master"
-    IMAGE_NAME = "WOG_Web_App"
+    IMAGE_NAME = "wog_web_app"
     NODE_NAME = "WOG_Node"
     PORT = "5001"
     FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
