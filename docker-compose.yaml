@@ -5,11 +5,12 @@ services:
       context: .
       args:
         PROJ_NAME: "World_of_Games"
-        PORT: 5001
+        PORT: ${PORT}
     privileged: true
     user: root
     ports:
       - "${PORT}:${PORT}"
+    container_name: "$NODE_NAME"
     volumes:
       - .:/app
     stdin_open: true

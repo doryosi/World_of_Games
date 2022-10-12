@@ -6,6 +6,7 @@ pipeline {
     PROJ_NAME = "World_of_Games"
     PROJ_BRANCH = "master"
     IMAGE = "$USER/$PROJ_NAME"
+    NODE_NAME = "WOG_Node"
     PORT = "5001"
     FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
     }
