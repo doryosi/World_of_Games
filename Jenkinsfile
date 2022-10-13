@@ -27,7 +27,7 @@ pipeline {
         stage('Run'){
             steps{
                 sh "docker-compose up -d"
-                sh "docker-compose convert"
+                sh "docker-compose config"
                 // just to check if all the relevant files were downloaded
                 sh "docker container exec $CONTAINER_NAME ls"
                 }
