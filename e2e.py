@@ -6,18 +6,17 @@ import argparse
 from Utils import bad_return_code, success_return_code
 
 DEFAULT_FLASK_APP_URL = "http://127.0.0.1:5003/"
-
+BIN_CHROME_DRIVER_DEST = "/usr/local/bin"
 
 
 def test_scores_service(url):
-    BIN_CHROME_DRIVER_DEST = "/usr/local/bin"
     try:
         paths = []
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        full_bin_path = ChromeDriverManager(path=BIN_CHROME_DRIVER_DEST).install()
+        full_bin_path = ChromeDriverManager().install()
         my_driver = webdriver.Chrome(service=ChromeService(full_bin_path), options=chrome_options)
         my_driver.get(url)
         score = my_driver.find_element(by="xpath", value='//*[@id="score"]').text
