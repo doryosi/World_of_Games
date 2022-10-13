@@ -48,8 +48,8 @@ pipeline {
     post{
         always{
             sh "docker compose down -v"
-//             sh "docker rm $CONTAINER_NAME"
-//             sh "docker image rm $IMAGE_NAME:dev"
+            sh "docker rm $CONTAINER_NAME"
+            sh "docker image rm $IMAGE_NAME:dev"
             sh "docker logout"
         }
     }
