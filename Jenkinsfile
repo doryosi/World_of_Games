@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment{
     DOCKERHUB_CREDENTIALS = credentials('doryosisinay-dockerhub')
-    DOCKERHUB_CREDENTIALS_USR = "doryosisinay"
+    USER = "doryosisinay"
     PROJ_NAME = "World_of_Games"
     PROJ_BRANCH = "master"
     IMAGE_NAME = "$USER/wog_web_app"
