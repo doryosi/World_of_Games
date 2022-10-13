@@ -20,7 +20,7 @@ def score_server():
         return render_template('score_error.html', bad_return_code=bad_return_code, error=e.args)
 
 
-app.run(host="0.0.0.0", port=5001, debug=False)
+app.run(host="0.0.0.0", port=5003, debug=False)
 
 
 

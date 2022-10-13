@@ -7,7 +7,7 @@ pipeline {
     PROJ_BRANCH = "master"
     IMAGE_NAME = "$USER/wog_web_app"
     CONTAINER_NAME = "WOG_Node"
-    PORT = "5001"
+    PORT = "5003"
     FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
     }
     stages {
