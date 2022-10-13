@@ -18,7 +18,7 @@ WORKDIR /$PROJ_NAME
 COPY Scores.txt /$PROJ_NAME
 COPY *.py /$PROJ_NAME/
 COPY ./tests/e2e.py /$PROJ_NAME/
-COPY ./templates/* /$PROJ_NAME/
+COPY ./templates/ /$PROJ_NAME/
 COPY Requirements.txt /$PROJ_NAME/Requirements.txt
 RUN pip3 install -r /$PROJ_NAME/Requirements.txt
 EXPOSE $PORT
