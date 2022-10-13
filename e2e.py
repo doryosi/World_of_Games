@@ -6,10 +6,11 @@ import argparse
 from Utils import bad_return_code, success_return_code
 
 DEFAULT_FLASK_APP_URL = "http://127.0.0.1:5003/"
-BIN_CHROME_DRIVER_DEST = "/usr/local/bin"
+
 
 
 def test_scores_service(url):
+    BIN_CHROME_DRIVER_DEST = "/usr/local/bin"
     try:
         paths = []
         chrome_options = Options()
