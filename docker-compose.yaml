@@ -14,5 +14,5 @@ services:
     container_name: "$CONTAINER_NAME"
     volumes:
       - .:/app
-#    stdin_open: true
-#    tty: true
+    stdin_open: true
+    tty: true
