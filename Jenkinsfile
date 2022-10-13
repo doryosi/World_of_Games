@@ -43,7 +43,7 @@ pipeline {
             }
         stage('Push'){
             steps{
-                sh "docker compose push"
+                sh "docker-compose push"
                 }
             }
         }
