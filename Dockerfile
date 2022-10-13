@@ -21,5 +21,6 @@ COPY ./tests/e2e.py /$PROJ_NAME/
 COPY ./templates/* /$PROJ_NAME/templates/
 COPY Requirements.txt /$PROJ_NAME/Requirements.txt
 RUN pip3 install -r /$PROJ_NAME/Requirements.txt
+RUN pip3 install --upgrade requests
 EXPOSE $PORT
 CMD [ "python3", "MainScore.py"]

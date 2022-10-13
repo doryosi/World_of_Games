@@ -27,7 +27,8 @@ pipeline {
         stage('Run'){
             steps{
                 sh "docker-compose up -d"
-                sh "docker container exec WOG_Node ls"
+                // just to check if all the relevant files were downloaded
+                sh "docker container exec $CONTAINER_NAME ls"
                 }
             }
         stage('Test'){
