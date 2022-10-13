@@ -27,6 +27,7 @@ pipeline {
         stage('Run'){
             steps{
                 sh "docker-compose up -d"
+                sh "docker container exec WOG_Node ls"
                 }
             }
         stage('Test'){
