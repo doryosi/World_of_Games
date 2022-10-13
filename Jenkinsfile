@@ -16,7 +16,7 @@ pipeline {
               checkout([$class: 'GitSCM',
                 branches: [[name: "*/$PROJ_BRANCH"]],
                 userRemoteConfigs: [[url: "https://github.com/$USER/$PROJ_NAME"]]])
-              git "https://github.com/$USER/$PROJ_NAME"
+//               git "https://github.com/$USER/$PROJ_NAME"
           }
         }
         stage('Build docker image'){
