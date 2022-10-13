@@ -2,10 +2,10 @@ pipeline {
     agent any
     environment{
     DOCKERHUB_CREDENTIALS = credentials('doryosisinay-dockerhub')
-    USER = "doryosisinay"
+    USER = "doryosi"
     PROJ_NAME = "World_of_Games"
     PROJ_BRANCH = "master"
-    IMAGE_NAME = "$USER/wog_web_app"
+    IMAGE_NAME = "$DOCKERHUB_CREDENTIALS_USR/wog_web_app"
     CONTAINER_NAME = "WOG_Node"
     PORT = "5003"
     FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
