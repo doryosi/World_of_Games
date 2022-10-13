@@ -33,7 +33,7 @@ pipeline {
             }
         stage('Test'){
             steps{
-                sh "docker-compose exec $CONTAINER_NAME python3 e2e.py"
+                sh "docker-compose exec web python3 e2e.py -u $FLASK_SERVER_URL"
                 }
             }
         stage('Login'){
