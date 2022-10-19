@@ -11,3 +11,6 @@ The whole process is automated by using Git as a SCM and Jenkins as CI/CD tool.
 - Selenium
 - Jenkins
 - Docker
+
+## Notes
+- The whole process is automated by using Git as a SCM, Jenkins as a CI/CD tool and Docker as a deployment technology.
