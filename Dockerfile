@@ -12,15 +12,15 @@ RUN pip install webdriver_manager
 # Passing arguments
 ARG PROJ_NAME
 ARG PORT
-ENV PROJ_NAME $PROJ_NAME
-ENV PORT $PORT
+ENV PROJ_NAME World_of_Games
+ENV PORT 5000
 
-WORKDIR /$PROJ_NAME
-COPY Scores.txt /$PROJ_NAME
-COPY *.py /$PROJ_NAME/
-COPY tests/e2e.py /$PROJ_NAME/
-COPY ./templates/* /$PROJ_NAME/templates/
-COPY Requirements.txt /$PROJ_NAME/Requirements.txt
-RUN pip3 install -r /$PROJ_NAME/Requirements.txt
-EXPOSE $PORT
+WORKDIR /World_of_Games
+COPY Scores.txt /World_of_Games
+COPY *.py /World_of_Games/
+COPY tests/e2e.py /World_of_Games/
+COPY ./templates/* /World_of_Games/templates/
+COPY Requirements.txt /World_of_Games/Requirements.txt
+RUN pip3 install -r /World_of_Games/Requirements.txt
+EXPOSE 5000
 CMD [ "python3", "MainScore.py"]
