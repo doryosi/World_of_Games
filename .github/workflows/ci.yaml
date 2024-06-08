@@ -40,13 +40,13 @@ jobs:
       
       - name: Build the Docker image
         run: |
-          docker build \
-            --file Dockerfile \
-            --tag ${{ env.REGISTRY }}:${{ github.run_number }} \
-            --tag ${{ env.REGISTRY }}:${{ env.short_hash }} \
-            --tag ${{ env.REGISTRY }}:${{ env.branch_name }} \
-              .
-      
+          docker build --file Dockerfile --tag ${{ env.REGISTRY }}:${{ github.run_number }} .
+
+      - name: Tag the Docker image
+        run: |
+          docker tag ${{ env.REGISTRY }}:${{ github.run_number }} ${{ env.REGISTRY }}:${{ env.short_hash }}
+          docker tag ${{ env.REGISTRY }}:${{ github.run_number }} ${{ env.REGISTRY }}:${{ env.branch_name }}
+    
       - name: Push image to Docker Hub
         run: |
           docker push ${{ env.REGISTRY }}:${{ github.run_number }}
