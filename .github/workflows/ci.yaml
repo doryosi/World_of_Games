@@ -33,6 +33,10 @@ jobs:
       - name: Get Short Commit Hash
         id: get_commit_hash
         run: echo "short_hash=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Get Branch Name
+        id: get_branch_name
+        run: echo "branch_name=${GITHUB_REF##*/}" >> $GITHUB_ENV
       
       - name: Build the Docker image
         run: |
