@@ -20,7 +20,7 @@ COPY Scores.txt /World_of_Games
 COPY *.py /World_of_Games/
 COPY tests/e2e.py /World_of_Games/
 COPY ./templates/* /World_of_Games/templates/
-COPY Requirements.txt /World_of_Games/Requirements.txt
+COPY ../../Requirements.txt /World_of_Games/Requirements.txt
 RUN pip3 install -r /World_of_Games/Requirements.txt
 EXPOSE 5000
 CMD [ "python3", "MainScore.py"]
