@@ -44,11 +44,11 @@ jobs:
             --file Dockerfile \
             --tag ${{ env.REGISTRY }}:${{ github.run_number }} \
             --tag ${{ env.REGISTRY }}:${{ env.short_hash }} \
-            --tag ${{ env.REGISTRY }}:${{ github.ref_slug }} \
+            --tag ${{ env.REGISTRY }}:${{ env.branch_name }} \
               .
       
       - name: Push image to Docker Hub
         run: |
           docker push ${{ env.REGISTRY }}:${{ github.run_number }}
           docker push ${{ env.REGISTRY }}:${{ env.short_hash }}
-          docker push ${{ env.REGISTRY }}:${{ github.ref_name }}
+          docker push ${{ env.REGISTRY }}:${{ env.branch_name }}
