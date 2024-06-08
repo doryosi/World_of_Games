@@ -1,7 +1,6 @@
 name: Create a New Tag Version and Release
 
 on: 
-
   workflow_dispatch:
     inputs:
       version:
@@ -11,7 +10,6 @@ on:
 jobs:
   tag_and_release:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/feature/*'
     
     steps:
       - name: Checkout code
