@@ -9,11 +9,12 @@ on:
         required: true
 
 jobs:
-  tag:
+  tag_and_release:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up Git user
         run: |
@@ -25,5 +26,20 @@ jobs:
           TAG_NAME="${{ github.event.inputs.version }}"
           git tag -a $TAG_NAME -m "Tagging release with version $TAG_NAME"
           git push origin $TAG_NAME
+          
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          release_name: ${{ github.event.inputs.version }}
+          body: "Release of version ${{ github.event.inputs.version }}"
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Save release ID to file
+        run: echo "RELEASE_ID=${{ steps.create_release.outputs.id }}" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
