@@ -1,5 +1,6 @@
-name: Create a New Tag Version and Release
+name: Create a New Tag Version
 
+# Controls when the workflow will run
 on: 
   workflow_dispatch:
     inputs:
@@ -25,7 +26,7 @@ jobs:
           TAG_NAME="${{ github.event.inputs.version }}"
           git tag -a $TAG_NAME -m "Tagging release with version $TAG_NAME"
           git push origin $TAG_NAME
-
+          
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -40,3 +41,5 @@ jobs:
 
       - name: Save release ID to file
         run: echo "RELEASE_ID=${{ steps.create_release.outputs.id }}" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
